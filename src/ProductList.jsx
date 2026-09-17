@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "./CartSlice";
+import { addItem } from "./CartSlice";
 
 const categories = [
   {
@@ -190,7 +190,7 @@ export default function ProductList() {
                   key={product.id}
                   product={product}
                   isAdded={isInCart(product.id)}
-                  onAdd={(item) => dispatch(addToCart(item))}
+                  onAdd={(item) => dispatch(addItem(item))}
                 />
               ))}
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductList from "./ProductList";
@@ -45,22 +45,33 @@ function Header() {
 }
 
 function LandingPage() {
+  const [started, setStarted] = useState(false);
+
   return (
     <main className="landing-page">
       <div className="landing-overlay">
         <section className="hero-card">
           <p className="eyebrow">BRING NATURE HOME</p>
+
           <h1>Paradise Nursery</h1>
+
           <p className="hero-text">
-            Welcome to Paradise Nursery, your little corner of green happiness.
-            We bring beautiful, easy-to-love houseplants to your home so you
-            can create a calm, fresh and lively space every day.
+            Welcome to Paradise Nursery, your little corner of green
+            happiness. We bring beautiful, easy-to-love houseplants
+            to your home so you can create a calm, fresh and lively
+            space every day.
           </p>
-          <Link to="/plants" className="primary-button">
+
+          <Link
+            to="/plants"
+            className="primary-button"
+            onClick={() => setStarted(true)}
+          >
             Get Started
           </Link>
         </section>
       </div>
+
       <AboutUs />
     </main>
   );
